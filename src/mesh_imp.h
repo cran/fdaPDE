@@ -65,44 +65,44 @@ template <UInt ORDER>
 Triangle<ORDER * 3> MeshHandler<ORDER>::findLocationNaive(Point point) const
 {
 	Triangle<ORDER * 3> current_triangle; 
-	
+	//std::cout<<"Start searching point naively \n";
 	for(Id id=0; id < num_triangles_; ++id)
 	{
 		current_triangle = getTriangle(id);
 		if(current_triangle.isPointInside(point)) 
 			return current_triangle;
 	}
-
+	//std::cout<<"Point not found \n";
 	return Triangle<ORDER * 3>(); //default triangle with NVAL ID
 }
 
 // Visibility walk algorithm which uses barycentric coordinate [Sundareswara et al]
 //Starting triangles usually n^(1/3) points
 template <UInt ORDER>
-Triangle<ORDER * 3> MeshHandler<ORDER>::findLocationWalking(const Point& point, const vector<Triangle<ORDER * 3> >& starting_triangles) const
+Triangle<ORDER * 3> MeshHandler<ORDER>::findLocationWalking(const Point& point, const Triangle<ORDER * 3>& starting_triangle) const
 {
 	
 	//Real eps = 2.2204e-016,
 	//	 tolerance = 10000 * eps;
 
-	// Finding the nearest trianglefrom the proposed list
-	UInt min_index = 0;
-	Real distance;
-	Real distance_old = (starting_triangles[0][0][0] - point[0])*(starting_triangles[0][0][0] - point[0]) + 
-						(starting_triangles[0][0][1] - point[1])*(starting_triangles[0][0][1] - point[1]);
-	for(UInt i=1; i < starting_triangles.size(); ++i)
-	{
-		distance = (starting_triangles[i][0][0] - point[0])*(starting_triangles[i][0][0] - point[0]) + 
-				   (starting_triangles[i][0][1] - point[1])*(starting_triangles[i][0][1] - point[1]);
-		if(distance < distance_old)
-		{
-			min_index = i;
-			distance_old = distance;
-		}
-	}
+//	// Finding the nearest trianglefrom the proposed list
+//	UInt min_index = 0;
+//	Real distance;
+//	Real distance_old = (starting_triangles[0][0][0] - point[0])*(starting_triangles[0][0][0] - point[0]) +
+//						(starting_triangles[0][0][1] - point[1])*(starting_triangles[0][0][1] - point[1]);
+//	for(UInt i=1; i < starting_triangles.size(); ++i)
+//	{
+//		distance = (starting_triangles[i][0][0] - point[0])*(starting_triangles[i][0][0] - point[0]) +
+//				   (starting_triangles[i][0][1] - point[1])*(starting_triangles[i][0][1] - point[1]);
+//		if(distance < distance_old)
+//		{
+//			min_index = i;
+//			distance_old = distance;
+//		}
+//	}
 
 	//Walking algorithm to the point
-	Triangle<ORDER * 3> current_triangle = starting_triangles[min_index];
+	Triangle<ORDER * 3> current_triangle = starting_triangle;
 
 	int direction=0;
 
@@ -110,8 +110,9 @@ Triangle<ORDER * 3> MeshHandler<ORDER>::findLocationWalking(const Point& point, 
 	while(current_triangle.getId() != Identifier::NVAL && !current_triangle.isPointInside(point) )
 	{
 		direction = current_triangle.getPointDirection(point);
+		//std::cout<<"Direction "<<direction<<";";
 		current_triangle = getNeighbors(current_triangle.getId(), direction);
-		//std::cout<<"Direction "<<direction<< " ID "<<current_triangle.getId();
+  	    //std::cout<<" ID "<<current_triangle.getId();
 	}	
 	
 	return current_triangle;

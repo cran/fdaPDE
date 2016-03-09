@@ -218,14 +218,23 @@ void MixedFERegression<InputHandler,Integrator,ORDER>::setPsi(){
 		for(UInt i=0; i<nlocations;i++)
 		{
 			tri_activated = mesh_.findLocationNaive(regressionData_.getLocations()[i]);
-			for(UInt node = 0; node < ORDER*3 ; ++node)
+			if(tri_activated.getId() == Identifier::NVAL)
 			{
-				 coefficients = Eigen::Matrix<Real,ORDER * 3,1>::Zero();
-				 coefficients(node) = 1; //Activates only current base
-				 evaluator = evaluate_point<ORDER>(tri_activated, regressionData_.getLocations()[i], coefficients);
-				 psi_.insert(i, tri_activated[node].getId()) = evaluator;
+				#ifdef R_VERSION_
+				Rprintf("ERROR: Point %d is not in the domain, remove point and re-perform smoothing\n", i+1);
+				#else
+				std::cout << "ERROR: Point " << i+1 <<" is not in the domain\n";
+				#endif
+			}else
+			{
+				for(UInt node = 0; node < ORDER*3 ; ++node)
+				{
+					coefficients = Eigen::Matrix<Real,ORDER * 3,1>::Zero();
+					coefficients(node) = 1; //Activates only current base
+					evaluator = evaluate_point<ORDER>(tri_activated, regressionData_.getLocations()[i], coefficients);
+					psi_.insert(i, tri_activated[node].getId()) = evaluator;
+				}
 			}
-
 		}
 
 		psi_.makeCompressed();
@@ -399,7 +408,7 @@ void MixedFERegression<InputHandler,Integrator,ORDER>::smoothLaplace()
 {
 	//std::cout<<"Laplace Penalization - Order: "<<ORDER<<std::endl;
 
-	UInt ndata=regressionData_.getObservations().size();
+	//UInt ndata=regressionData_.getObservations().size();
 	UInt nnodes=mesh_.num_nodes();
 
 	FiniteElement<Integrator, ORDER> fe;
@@ -448,7 +457,7 @@ void MixedFERegression<InputHandler,Integrator,ORDER>::smoothLaplace()
     _solution.resize(regressionData_.getLambda().size());
     _dof.resize(regressionData_.getLambda().size());
 
-    for(auto i = 0; i<regressionData_.getLambda().size(); ++i)
+    for(UInt i = 0; i<regressionData_.getLambda().size(); ++i)
 	{
     	//build(tripletsData_,(-regressionData_.getLambda())*stiff, (-regressionData_.getLambda())*mass, righthand, forcing);
 
@@ -481,7 +490,7 @@ void MixedFERegression<InputHandler,Integrator,ORDER>::smoothEllipticPDE()
 {
 	//std::cout<<"Elliptic PDE Penalization - Order: "<<ORDER<<std::endl;
 
-	UInt ndata=regressionData_.getObservations().size();
+	//UInt ndata=regressionData_.getObservations().size();
 	UInt nnodes=mesh_.num_nodes();
 
 	FiniteElement<Integrator, ORDER> fe;
@@ -537,7 +546,7 @@ void MixedFERegression<InputHandler,Integrator,ORDER>::smoothEllipticPDE()
     _solution.resize(regressionData_.getLambda().size());
     _dof.resize(regressionData_.getLambda().size());
 
-    for(auto i = 0; i<regressionData_.getLambda().size(); ++i)
+    for(UInt i = 0; i<regressionData_.getLambda().size(); ++i)
 	{
     	//build(tripletsData_,(-regressionData_.getLambda())*stiff, (-regressionData_.getLambda())*mass, righthand, forcing);
 
@@ -632,7 +641,7 @@ void MixedFERegression<InputHandler,Integrator,ORDER>::smoothEllipticPDESpaceVar
     _solution.resize(regressionData_.getLambda().size());
     _dof.resize(regressionData_.getLambda().size());
 
-    for(auto i = 0; i<regressionData_.getLambda().size(); ++i)
+    for(UInt i = 0; i<regressionData_.getLambda().size(); ++i)
 	{
     	//build(tripletsData_,(-regressionData_.getLambda())*stiff, (-regressionData_.getLambda())*mass, righthand, forcing);
 

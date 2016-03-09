@@ -208,6 +208,15 @@ R_smooth.FEM.basis = function(locations, observations, FEMbasis, lambda, covaria
   
   # Stores the number of nodes of the mesh. This corresponds to the number of elements of the FE basis.
   numnodes = nrow(FEMbasis$mesh$nodes)
+  if(!is.null(covariates))
+  {
+    covariates = as.matrix(covariates)
+  }
+  
+  if(!is.null(locations))
+  {
+    locations <- as.matrix(locations)
+  }
   
   #  ---------------------------------------------------------------
   # construct mass matrix K0 
@@ -533,6 +542,7 @@ R_eval.FEM <- function(FEM, locations)
   
   # Get nodes and index
   
+  FEMbasis = FEM$FEMbasis
   mesh = FEMbasis$mesh
   
   nodes = mesh$nodes
@@ -822,7 +832,7 @@ R_plot.ORDN.FEM = function(FEM, num_refinements, ...)
   # num_refinements sets the number od division on each triangle edge to be applied for rifenment
   if(is.null(num_refinements))
   {
-    num_refinements = 20
+    num_refinements = 10
   }
   
   # For the reference triangles we construct a regular mesh
@@ -930,7 +940,7 @@ R_image.ORDN.FEM = function(FEM, num_refinements)
   
   if(is.null(num_refinements))
   {
-    num_refinements = 20
+    num_refinements = 10
   }
   
   x = seq(from = 0, to = 1, length.out = num_refinements+1)
