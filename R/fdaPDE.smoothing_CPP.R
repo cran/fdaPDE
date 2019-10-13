@@ -55,7 +55,7 @@ CPP_smooth.FEM.basis<-function(locations, observations, FEMbasis, lambda, covari
   bigsol <- .Call("regression_Laplace", locations, observations, FEMbasis$mesh, 
                   FEMbasis$order, lambda, covariates,
                   BC$BC_indices, BC$BC_values, GCV,
-                  package = "fdaPDE")
+                  PACKAGE = "fdaPDE")
   
   ## Reset them correctly
   #fdobj$basis$params$mesh$triangles = fdobj$basis$params$mesh$triangles + 1
@@ -123,7 +123,7 @@ CPP_smooth.FEM.PDE.basis<-function(locations, observations, FEMbasis, lambda, PD
   bigsol <- .Call("regression_PDE", locations, observations, FEMbasis$mesh, 
                   FEMbasis$order, lambda, PDE_parameters$K, PDE_parameters$b, PDE_parameters$c, covariates,
                   BC$BC_indices, BC$BC_values, GCV,
-                  package = "fdaPDE")
+                  PACKAGE = "fdaPDE")
   
   ## Reset them correctly
   #fdobj$basis$params$mesh$triangles = fdobj$basis$params$mesh$triangles + 1
@@ -200,7 +200,7 @@ CPP_smooth.FEM.PDE.sv.basis<-function(locations, observations, FEMbasis, lambda,
   bigsol <- .Call("regression_PDE_space_varying", locations, observations, FEMbasis$mesh, 
                   FEMbasis$order, lambda, PDE_param_eval$K, PDE_param_eval$b, PDE_param_eval$c, PDE_param_eval$u, covariates,
                   BC$BC_indices, BC$BC_values, GCV,
-                  package = "fdaPDE")
+                  PACKAGE = "fdaPDE")
   
   ## Reset them correctly
   #fdobj$basis$params$mesh$triangles = fdobj$basis$params$mesh$triangles + 1
@@ -238,7 +238,7 @@ CPP_eval.FEM = function(FEM, locations, redundancy)
   {
     evalmat[,i] <- .Call("eval_FEM_fd", FEMbasis$mesh, locations[,1], locations[,2], coeff[,i], 
                    FEMbasis$order, redundancy,
-                   package = "fdaPDE")
+                   PACKAGE = "fdaPDE")
   }
   #Returning the evaluation matrix
   evalmat
@@ -257,10 +257,10 @@ CPP_get_evaluations_points = function(mesh, order)
   # EVALMAT   an array of the same size as X and Y containing the value of 
   #           FELSPLOBJ at (X,Y).
   
-  ## C++ indexes starts from zero, needed conversion.
-  mesh$triangles = mesh$triangles - 1
-  mesh$edges = mesh$edges - 1
-  mesh$neighbors[mesh$neighbors != -1] = mesh$neighbors[mesh$neighbors != -1] - 1
+  ## C++ indexes starts from zero, needed conversion. Cnversion is now done in cpp
+  #mesh$triangles = mesh$triangles - 1
+  #mesh$edges = mesh$edges - 1
+  #mesh$neighbors[mesh$neighbors != -1] = mesh$neighbors[mesh$neighbors != -1] - 1
   
   # Imposing types, this is necessary for correct reading from C++
   storage.mode(mesh$points) <- "double"
@@ -271,7 +271,7 @@ CPP_get_evaluations_points = function(mesh, order)
   
   #Calling the C++ function "eval_FEM_fd" in RPDE_interface.cpp
   points <- .Call("get_integration_points",mesh, order,
-                  package = "fdaPDE")
+                  PACKAGE = "fdaPDE")
   
   #Returning the evaluation matrix
   points

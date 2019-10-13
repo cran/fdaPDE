@@ -22,4 +22,3 @@ Only executed when the function \code{create.FEM.basis} is run with the option \
 It computes some quantities associated to the linear map that transforms the ith triangle in the reference triangular element. 
 These are used for the computation of the integrals necessary to build the mass and stiffness matrix.
 }
-

@@ -1,7 +1,7 @@
 #' Meuse river data set
 #'
 #' This data set gives locations, top soil heavy metal concentrations (ppm) and other variables, collected in a flood plain of the river Meuse. 
-#' For details on this dataset, see \code{meuse.all} in \url{https://cran.r-project.org/web/packages/gstat/gstat.pdf}. This version of the dataset
+#' For details on this dataset, see \code{meuse.all} in \url{https://cran.r-project.org/package=gstat/gstat.pdf}. This version of the dataset
 #' includes 155 observations. Moreover, a definition of the domain's boundary is provided through the file {\link{MeuseBorder}}, 
 #' as it is used in many examples to illustrate fdaPDE features. 
 #' \itemize{
@@ -20,7 +20,7 @@
 #' }
 #'
 #' @format A data frame with 155 rows and 12 variables.
-#' @source \url{https://cran.r-project.org/web/packages/gstat/gstat.pdf}
+#' @source \url{https://cran.r-project.org/package=gstat/gstat.pdf}
 #' \url{http://spatial-analyst.net/book/meusegrids}
 #' @name MeuseData
 NULL

@@ -37,4 +37,3 @@ FEMbasis = create.FEM.basis(mesh)
 \seealso{
 \code{\link{create.MESH.2D}}
 }
-

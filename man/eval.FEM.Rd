@@ -23,4 +23,3 @@ It evaluates a FEM object the specified set of locations.
 \references{
 Devillers, O. et al. 2001. Walking in a Triangulation, Proceedings of the Seventeenth Annual Symposium on Computational Geometry
 }
-

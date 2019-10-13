@@ -58,6 +58,7 @@ create.FEM.basis = function(mesh)
 #' @usage FEM(coeff,FEMbasis)
 #' @return An \code{FEM} object. This contains a list with components \code{coeff} and \code{FEMbasis}.
 #' @examples 
+#' \dontrun{
 #' ## Upload a triangular mesh and plot it
 #' data("mesh.2D.rectangular")
 #' plot(mesh.2D.rectangular)
@@ -67,6 +68,7 @@ create.FEM.basis = function(mesh)
 #' coeff <- sin(mesh.2D.rectangular$nodes[,1])*cos(mesh.2D.rectangular$nodes[,2])
 #' FEM_object<- FEM(coeff, FEMbasis)
 #' plot(FEM_object)
+#' }
 
 FEM<-function(coeff,FEMbasis)
 {
@@ -97,6 +99,7 @@ FEM<-function(coeff,FEMbasis)
 #' @usage \method{plot}{FEM}(x, num_refinements, ...)  
 #' @seealso \code{\link{image.FEM}}
 #' @examples 
+#' \dontrun{
 #' ## Upload a triangular mesh and plot it
 #' data("mesh.2D.rectangular")
 #' plot(mesh.2D.rectangular)
@@ -106,6 +109,7 @@ FEM<-function(coeff,FEMbasis)
 #' coeff <- sin(mesh.2D.rectangular$nodes[,1])*cos(mesh.2D.rectangular$nodes[,2])
 #' FEM_object<- FEM(coeff, FEMbasis)
 #' plot(FEM_object)
+#' }
 
 plot.FEM = function(x, num_refinements = NULL, ...)  
 {
@@ -127,7 +131,8 @@ plot.FEM = function(x, num_refinements = NULL, ...)
 #' \code{smooth.FEM.PDE.sv.basis} can be visualized through an image plot.
 #' @usage \method{image}{FEM}(x, num_refinements, ...)  
 #' @seealso \code{\link{plot.FEM}}
-#' @examples 
+#' @examples
+#' \dontrun{
 #' ## Upload a triangular mesh and plot it
 #' data("mesh.2D.rectangular")
 #' plot(mesh.2D.rectangular)
@@ -137,6 +142,7 @@ plot.FEM = function(x, num_refinements = NULL, ...)
 #' coeff <- sin(mesh.2D.rectangular$nodes[,1])*cos(mesh.2D.rectangular$nodes[,2])
 #' FEM_object<- FEM(coeff, FEMbasis)
 #' image(FEM_object)
+#' }
 image.FEM = function(x, num_refinements = NULL, ...)  
 {
   if(x$FEMbasis$order == 1)

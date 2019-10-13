@@ -20,6 +20,7 @@ An \code{FEM} object. This contains a list with components \code{coeff} and \cod
 This function defines a FEM object. This is not usualled called directly by users.
 }
 \examples{
+\dontrun{
 ## Upload a triangular mesh and plot it
 data("mesh.2D.rectangular")
 plot(mesh.2D.rectangular)
@@ -30,4 +31,4 @@ coeff <- sin(mesh.2D.rectangular$nodes[,1])*cos(mesh.2D.rectangular$nodes[,2])
 FEM_object<- FEM(coeff, FEMbasis)
 plot(FEM_object)
 }
-
+}
