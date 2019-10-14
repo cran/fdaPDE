@@ -1,4 +1,4 @@
-36a3d601a9c8b7764ae2f42522ff9224 *DESCRIPTION
+1d978c2aa9bcb9332c8761b647ab3aba *DESCRIPTION
 c2db129904763f9bc3c393a9086ac99f *LICENSE.note
 8835dc9f19c97b00fd76d6ef700927b8 *NAMESPACE
 355ea4a20a1b9f9e41e4385f072f6180 *R/datasets.R
@@ -37,7 +37,6 @@ ae343dd8763b49ae9323cd6c05b4596c *man/smooth.FEM.PDE.sv.basis.Rd
 84aabf9e53d4adf59644e0ccf1613c1f *man/smooth.FEM.basis.Rd
 5e15c9bf2f2f6efeb7b1592249e2ddb0 *src/FEMeval.cpp
 a5a6c0d015a96a356ce2dafd738b5b3e *src/FEMtriangulation.c
-6f77ee63bcb142601da875c02860be29 *src/Makevars
 f2f38e669c09d396d9a0ab8cc71a756b *src/evaluator.h
 7ba147ff7ecef85fe5d4289083d2ac80 *src/evaluator_imp.h
 2ca1cb0071e077214a2a83e3e8637242 *src/fdaPDE.cpp

@@ -1,6 +1,6 @@
 Package: fdaPDE
-Version: 0.1-5
-Date: 2019-10-12
+Version: 0.1-6
+Date: 2019-10-14
 Title: Functional Data Analysis and Partial Differential Equations;
         Statistical Analysis of Functional and Spatial Data, Based on
         Regression with Partial Differential Regularizations
@@ -26,6 +26,6 @@ Copyright: See the individual source files for copyrights information
 NeedsCompilation: yes
 SystemRequirements: C++11
 RoxygenNote: 6.1.1
-Packaged: 2019-10-13 14:21:44 UTC; eardi
+Packaged: 2019-10-14 15:49:36 UTC; eardi
 Repository: CRAN
-Date/Publication: 2019-10-13 14:50:02 UTC
+Date/Publication: 2019-10-14 18:10:02 UTC
