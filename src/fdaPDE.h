@@ -10,6 +10,7 @@
 #endif
 
 #include <stdint.h>
+#include <iostream>
 
 #include <cstdlib>
 //#include <iomanip>
@@ -26,13 +27,20 @@
 #include <Eigen/StdVector>
 #include <Eigen/Sparse>
 #include <Eigen/Dense>
+#include <Eigen/IterativeLinearSolvers>
+
+//Take the code from the linked Rmumps  (future release?)
+//#include <dmumps_c.h>
+
 #define  EIGEN_MPL2_ONLY
 
 typedef double Real;
 typedef int UInt;
 
 typedef Eigen::Matrix<Real,Eigen::Dynamic,Eigen::Dynamic> MatrixXr;
+typedef Eigen::Matrix<UInt,Eigen::Dynamic,Eigen::Dynamic> MatrixXi;
 typedef Eigen::Matrix<Real,Eigen::Dynamic,1> VectorXr;
+typedef Eigen::Matrix<UInt,Eigen::Dynamic,1> VectorXi;
 typedef Eigen::SparseMatrix<Real> SpMat;
 typedef Eigen::SparseVector<Real> SpVec;
 typedef Eigen::Triplet<Real> coeff;

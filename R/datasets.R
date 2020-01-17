@@ -1,53 +1,72 @@
-#' Meuse river data set
+#' Horseshoe domain
 #'
-#' This data set gives locations, top soil heavy metal concentrations (ppm) and other variables, collected in a flood plain of the river Meuse. 
-#' For details on this dataset, see \code{meuse.all} in \url{https://cran.r-project.org/package=gstat/gstat.pdf}. This version of the dataset
-#' includes 155 observations. Moreover, a definition of the domain's boundary is provided through the file {\link{MeuseBorder}}, 
-#' as it is used in many examples to illustrate fdaPDE features. 
+#' The boundary and interior nodes and connectivity matrix of a triangular mesh of the horseshoe domain. 
+#' This dataset can be used to create a \code{MESH.2D} object with the function \code{create.MESH.2D}. 
+#' The variables are:
 #' \itemize{
-#'   \item sample: original sample number. In this version of the dataset some observations has been left out because not indicative, or outliers.
-#'   \item x: numeric vector indicating the x-coordinate (m) in RDM (Dutch topographical map coordinates).
-#'   \item y: numeric vector indicating the y-coordinate (m) in RDM (Dutch topographical map coordinates).
-#'   \item cadmium: topsoil cadmium concentration (ppm).
-#'   \item copper: topsoil copper concentration (ppm).
-#'   \item lead: topsoil lead concentration (ppm).
-#'   \item zinc: topsoil zinc concentration (ppm).
-#'   \item elev: relative elevation.
-#'   \item dist.log(m): logarithm of the distance to river Meuse (metres), as obtained during the field survey.
-#'   \item om: organic matter, as percentage.
-#'   \item ffreq: flooding frequency class.
-#'   \item soil: soil type.
+#'    \item boundary_nodes. The nodes in the boundary.
+#'    \item boundary_segments. The ssegments of the boundary.
+#'    \item locations. The interior nodes of the mesh. 
 #' }
 #'
-#' @format A data frame with 155 rows and 12 variables.
-#' @source \url{https://cran.r-project.org/package=gstat/gstat.pdf}
-#' \url{http://spatial-analyst.net/book/meusegrids}
-#' @name MeuseData
+#' @name horseshoe2D
+#' @docType data
+#' @usage data(horseshoe2D)
 NULL
 
-#' Boundary of the Meuse River data set
+
+#' Quasicircle2D domain
 #'
-#' This file provides the boundary of the domain of the {\link{MeuseData}}.
-#'
+#' The boundary and interior nodes and connectivity matrix of a triangular mesh of a quasicircular domain, together 
+#' with a non-stationary field observed over the nodes of the mesh.  
+#' This dataset can be used to create a \code{MESH.2D} object with the function \code{create.MESH.2D} and to test
+#' the smooth.FEM function.
+#' The variables are:
 #' \itemize{
-#'   \item vertex_start. A vector having as entries the row's indices of the location in {\link{MeuseData}} where a boundary segment starts from.
-#'   \item vertex_end. A vector having as entries the row's indices of the location in {\link{MeuseData}} where a boundary segment ends to.
+#'    \item boundary_nodes. The nodes in the boundary.
+#'    \item boundary_segments. The ssegments of the boundary.
+#'    \item locations. The interior nodes of the mesh. 
+#'    \item data. The vector of observations. 
 #' }
 #'
-#' @format A data frame with 52 rows and 2 variables.
-#' @name MeuseBorder
+#' @name quasicircle2D
+#' @docType data
+#' @usage data(quasicircle2D)
 NULL
 
-#' Simple mesh
+
+#' Quasicircle2Dareal domain
 #'
-#' A simple mesh. This is a MESH2D object created with \code{create.MESH.2D}.
+#' The mesh of a quasicircular domain, together with a non-stationary field observed over seven circular subdomains and 
+#' the incindence matrix defining the subdomains used by Azzimonti et. al 2015.   
+#' This dataset can be used to test the smooth.FEM function for areal data. 
+#' The variables are:
+#' \itemize{
+#'    \item incidence_matrix. The 7-by-630 incidence matrix.
+#'    \item data. The vector of observations.
+#'    \item mesh. The mesh for areal data. 
+#' }
 #'
-#' @name mesh.2D.simple
+#' @references Azzimonti, L., Sangalli, L. M., Secchi, P., Domanin, M., & Nobile, F. (2015). Blood flow velocity 
+#' field estimation via spatial regression with PDE penalization. Journal of the American Statistical 
+#' Association, 110(511), 1057-1071.
+#' @name quasicircle2Dareal
+#' @docType data
+#' @usage data(quasicircle2Dareal)
 NULL
 
-#' Simple Rectangular mesh
+
+#' Hub domain
 #'
-#' A simple rectangular mesh. This is a MESH2D object created with \code{create.MESH.2D}.
-#'
-#' @name mesh.2D.rectangular
+#' The nodes and connectivity matrix of a triangular mesh of a manifold representing a hub geometry. 
+#' This dataset can be used to create a \code{MESH.2.5D} object with the function \code{create.MESH.2.5D}.
+#' The variables are:
+#' \itemize{
+#'    \item hub2.5D.nodes. The nodes of the mesh.
+#'    \item hub2.5D.triangles. The triangles of the mesh.
+#' }
+#' @name hub2.5D
+#' @docType data
+#' @usage data(hub2.5D)
 NULL
+
