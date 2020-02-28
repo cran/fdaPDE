@@ -1,6 +1,6 @@
-dcb70ceccd90521c37b1f8a8e182b4e7 *DESCRIPTION
+d61cef7ab5555ed506e4518c09482415 *DESCRIPTION
 cb434fc348c79af05af478c186d9e707 *NAMESPACE
-2665ad22c8bfbbfdca29f149edcaedbb *NEWS.md
+dcb2bf970e983b67a6fed162c0381206 *NEWS.md
 28b9fb7fc4046ac493aacf21e010421a *R/FEMevaluator.R
 6e8e28b48a1dbdb169e1b9945c10709c *R/FEMobjects.R
 ecc0086901091b014359a25695acd7e8 *R/checkFPCAParameters.R
@@ -52,6 +52,7 @@ a88bb6d8bfe04b72193d1654660fe879 *src/Factory.h
 042563482d9a6c47dcae5bdb9f0f6d85 *src/evaluator_imp.h
 6dc507e073ca338ddc3b20407fc993e9 *src/fdaPDE.cpp
 e18dba6739efbb61db90af52686b936d *src/fdaPDE.h
+23559aa0d62ee0b3e6e92f8147cef770 *src/fdaPDE_init.c
 09565d9b8343ce41d2145afeab849758 *src/finite_element.h
 c01ca937a15660c94706686003d2da55 *src/finite_element_imp.h
 c23fa13264e3e3b09a5ceba7cac038ff *src/integratePsi.h
@@ -59,13 +60,13 @@ dac620ceca38f95ddc4a2d3d01c28ca5 *src/integration.cpp
 15fbcb6e9ba3cd1824843a90ba13173e *src/integration.h
 52542d9478ca81699938bbfe87d6ec0a *src/matrix_assembler.h
 41e931dbeda1b83d006cbf5fc6e77e11 *src/matrix_assembler_imp.h
-85044837cc75b2f8930d7e86d16783c3 *src/mesh.h
+e806d1290d9b440d490e1324a80252b6 *src/mesh.h
 ad9997784f177762133f553e473e6f3c *src/mesh_imp.h
 47c2fb456b6cfcd0965ce8949c4bc728 *src/mesh_objects.cpp
 ca34dd4f54bffc326c8fac2194b850f8 *src/mesh_objects.h
 a4999fe683b640294b9ff4a192096a76 *src/mesh_objects_imp.h
 3f8af940ca1aaaf652823ea80e4e0ae6 *src/mixedFEFPCA.h
-49fa6e7df4f75e3cce4a19f1aa669292 *src/mixedFEFPCA_imp.h
+81f26de6b46a8e072c39f2da2a12dfbc *src/mixedFEFPCA_imp.h
 bc1f502dbb087bf647ba7580665b08ee *src/mixedFEFPCAfactory.h
 61204ceedd235ae209b754dbdc478bf5 *src/mixedFERegression.h
 ac136f7952b08a09d8f6087ace4861da *src/mixedFERegression_imp.h
@@ -75,5 +76,5 @@ ec17544dac86ae87cb8746a0a1d31c8c *src/regressionData.h
 4f053b4b3a6f498e93b7e9d2048ca6e2 *src/solver.h
 f5d185bc03ed2025ff556334bc82a9b4 *src/solverdefinitions.h
 fff35554bdbe17ea1d3f3916305fb05c *src/timing.h
-6a4b76b0cd9d9fa48ccc8bfb650d387d *src/triangle.c
+86530f5f029f5080d3942cdd340de665 *src/triangle.c
 4022ff7b3e9cb8da7e4d2b8699499fee *src/triangle.h

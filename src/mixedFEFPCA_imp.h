@@ -758,7 +758,7 @@ void MixedFEFPCAKFold<Integrator,ORDER, mydim, ndim>::computeKFolds(MatrixXr & d
 
 	for(auto k=0; k<nFolds; k++)
 	{
-		UInt length_chunk=floor(datamatrixResiduals_.rows()/nFolds);
+		UInt length_chunk = floor(static_cast<double>(datamatrixResiduals_.rows()/nFolds));
 		indices_valid.resize(datamatrixResiduals_.rows());
 
 		std::iota(indices_valid.begin(),indices_valid.begin()+length_chunk,k*length_chunk);

@@ -153,8 +153,13 @@ public:
 	typedef int UInt;
 	//! A constructor.
     
-    MeshHandler(Real* points, UInt* triangles, UInt num_nodes, UInt num_triangles):
-			points_(points), elements_(triangles), num_nodes_(num_nodes), num_elements_(num_triangles) {};
+    MeshHandler(Real* points, UInt* triangles, UInt num_nodes, UInt num_triangles)
+	{
+	  num_nodes_=num_nodes;
+	  num_elements_=num_triangles;
+	  points_.assign(points, points+3*num_nodes_);
+	  elements_.assign(triangles, triangles+3*ORDER*num_elements_);
+	};
 	
 	//! A constructor.
     /*!
@@ -255,8 +260,13 @@ public:
 	typedef int UInt;
 	//! A constructor.
     
-    MeshHandler(Real* points, UInt* tetrahedrons, UInt num_nodes, UInt num_tetrahedrons):
-			points_(points), elements_(tetrahedrons), num_nodes_(num_nodes), num_elements_(num_tetrahedrons) {};
+    MeshHandler(Real* points, UInt* tetrahedrons, UInt num_nodes, UInt num_tetrahedrons)
+	{
+		num_nodes_=num_nodes;
+		num_elements_=num_tetrahedrons;
+		points_.assign(points, points+3*num_nodes_);
+		elements_.assign(tetrahedrons, tetrahedrons+(6*ORDER-2)*num_elements_);
+	};
 	
 	//! A constructor.
     /*!

@@ -1,3 +1,21 @@
+# fdaPDE 1.0-6
+
+## Bug fixes
+Compilation error in solaris fixed.
+
+
+# fdaPDE 1.0-5
+
+## Bug fixes
+gcc-ASAN problem with RTriangle fixed.
+
+
+# fdaPDE 1.0-1
+
+## Bug fixes
+Compilation errors with clang fixed.
+
+
 # fdaPDE 1.0
 
 ## New features
