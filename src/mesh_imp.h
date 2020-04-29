@@ -387,7 +387,7 @@ MeshHandler<ORDER,3,3>::MeshHandler(SEXP mesh)
 template <UInt ORDER>
 Point MeshHandler<ORDER,3,3>::getPoint(Id id)
 {
-	Point point(id, Identifier::NVAL, points_[id], points_[id+1],points_[id+2],points_[id+3]);
+	Point point(id, Identifier::NVAL, points_[id], points_[id+1],points_[id+2]);
 	return point;
 }
 

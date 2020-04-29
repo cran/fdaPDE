@@ -4,17 +4,48 @@
 #include <R.h>
 #include <Rdefines.h>
 #include <Rinternals.h> 
+#include <time.h>
+#include <sys/time.h>
+
+#ifdef __MACH__
+#include <mach/clock.h>
+#include <mach/mach.h>
+#endif
 
 //! a class to measure the code performance in terms of time 
 class timer {
 public:
   void start() {
-    clock_gettime(CLOCK_REALTIME, &begin);
+	#ifdef __MACH__ // OS X does not have clock_gettime, use clock_get_time
+	clock_serv_t cclock;
+	mach_timespec_t mts;
+	host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
+	clock_get_time(cclock, &mts);
+	mach_port_deallocate(mach_task_self(), cclock);
+	begin.tv_sec = mts.tv_sec;
+	begin.tv_nsec = mts.tv_nsec;
+
+	#else
+	clock_gettime(CLOCK_REALTIME, &begin);
+	#endif
+
   }
 
   timespec stop() {
     timespec end;
-    clock_gettime(CLOCK_REALTIME, &end);
+	
+	#ifdef __MACH__ // OS X does not have clock_gettime, use clock_get_time
+	clock_serv_t cclock;
+	mach_timespec_t mts;
+	host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
+	clock_get_time(cclock, &mts);
+	mach_port_deallocate(mach_task_self(), cclock);
+	end.tv_sec = mts.tv_sec;
+	end.tv_nsec = mts.tv_nsec;
+
+	#else
+	clock_gettime(CLOCK_REALTIME, &end);
+	#endif
     
     timespec difference = diff(begin, end);
     Rprintf("It took %u.%09us\n", difference.tv_sec, difference.tv_nsec);

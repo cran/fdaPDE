@@ -1,6 +1,6 @@
-d61cef7ab5555ed506e4518c09482415 *DESCRIPTION
+2754839cb04bf99a03b11b033fd0d680 *DESCRIPTION
 cb434fc348c79af05af478c186d9e707 *NAMESPACE
-dcb2bf970e983b67a6fed162c0381206 *NEWS.md
+fb40e4d1e8e2ff7a41bbe5414e0d519f *NEWS.md
 28b9fb7fc4046ac493aacf21e010421a *R/FEMevaluator.R
 6e8e28b48a1dbdb169e1b9945c10709c *R/FEMobjects.R
 ecc0086901091b014359a25695acd7e8 *R/checkFPCAParameters.R
@@ -61,7 +61,7 @@ dac620ceca38f95ddc4a2d3d01c28ca5 *src/integration.cpp
 52542d9478ca81699938bbfe87d6ec0a *src/matrix_assembler.h
 41e931dbeda1b83d006cbf5fc6e77e11 *src/matrix_assembler_imp.h
 e806d1290d9b440d490e1324a80252b6 *src/mesh.h
-ad9997784f177762133f553e473e6f3c *src/mesh_imp.h
+2470e57c2f9c75450c5ca5b0f3079cfd *src/mesh_imp.h
 47c2fb456b6cfcd0965ce8949c4bc728 *src/mesh_objects.cpp
 ca34dd4f54bffc326c8fac2194b850f8 *src/mesh_objects.h
 a4999fe683b640294b9ff4a192096a76 *src/mesh_objects_imp.h
@@ -75,6 +75,6 @@ ec17544dac86ae87cb8746a0a1d31c8c *src/regressionData.h
 8e2c0f7f0f11aae917b25a7b1da3f6a8 *src/regressionData_imp.h
 4f053b4b3a6f498e93b7e9d2048ca6e2 *src/solver.h
 f5d185bc03ed2025ff556334bc82a9b4 *src/solverdefinitions.h
-fff35554bdbe17ea1d3f3916305fb05c *src/timing.h
+a50ff58d51fae1429056ebf20351c8ea *src/timing.h
 86530f5f029f5080d3942cdd340de665 *src/triangle.c
 4022ff7b3e9cb8da7e4d2b8699499fee *src/triangle.h
