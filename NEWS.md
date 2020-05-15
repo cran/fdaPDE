@@ -1,4 +1,4 @@
-# fdaPDE 1.0-8
+# fdaPDE 1.0-9
 
 ## Bug fixes
 Compilation errors with clang fixed.

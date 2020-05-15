@@ -1,6 +1,6 @@
-2754839cb04bf99a03b11b033fd0d680 *DESCRIPTION
+48642f2b9893786fb06de6fc56b06ad4 *DESCRIPTION
 cb434fc348c79af05af478c186d9e707 *NAMESPACE
-fb40e4d1e8e2ff7a41bbe5414e0d519f *NEWS.md
+a91b8d132248cf6958bccf33fd7d9995 *NEWS.md
 28b9fb7fc4046ac493aacf21e010421a *R/FEMevaluator.R
 6e8e28b48a1dbdb169e1b9945c10709c *R/FEMobjects.R
 ecc0086901091b014359a25695acd7e8 *R/checkFPCAParameters.R
@@ -69,7 +69,7 @@ a4999fe683b640294b9ff4a192096a76 *src/mesh_objects_imp.h
 81f26de6b46a8e072c39f2da2a12dfbc *src/mixedFEFPCA_imp.h
 bc1f502dbb087bf647ba7580665b08ee *src/mixedFEFPCAfactory.h
 61204ceedd235ae209b754dbdc478bf5 *src/mixedFERegression.h
-ac136f7952b08a09d8f6087ace4861da *src/mixedFERegression_imp.h
+5f4574f635c591f8735fbc073ae2b32d *src/mixedFERegression_imp.h
 4d9f6143699faeff6572012db84b1b0e *src/param_functors.h
 ec17544dac86ae87cb8746a0a1d31c8c *src/regressionData.h
 8e2c0f7f0f11aae917b25a7b1da3f6a8 *src/regressionData_imp.h
