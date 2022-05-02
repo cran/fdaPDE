@@ -4,26 +4,34 @@
 \alias{eval.FEM}
 \title{Evaluate a FEM object at a set of point locations}
 \usage{
-eval.FEM(FEM, locations = NULL, incidence_matrix = NULL)
+eval.FEM(FEM, locations = NULL, incidence_matrix = NULL, search = "tree", 
+                bary.locations = NULL)
 }
 \arguments{
 \item{FEM}{A \code{FEM} object to be evaluated.}
 
-\item{locations}{A 2-columns (in 2D) or 3-columns (in 2.5D) matrix with the spatial locations where the 
+\item{locations}{A 2-columns (in 1.5D or 2D) or 3-columns (in 2.5D and 3D) matrix with the spatial locations where the
 FEM object should be evaluated.}
 
-\item{incidence_matrix}{In case of areal evaluations, the #regions-by-#elements incidence matrix defining the regions 
+\item{incidence_matrix}{In case of areal evaluations, the #regions-by-#elements incidence matrix defining the regions
 where the FEM object should be evaluated.}
+
+\item{search}{a flag to decide the search algorithm type (tree or naive or walking search algorithm).}
+
+\item{bary.locations}{A list with three vectors:
+\code{locations}, location points which are same as the given locations options. (checks whether both locations are the same);
+\code{element ids}, a vector of element id of the points from the mesh where they are located;
+\code{barycenters}, a vector of barycenter of points from the located element.}
 }
 \value{
-A vector or a matrix of numeric evaluations of the \code{FEM} object. 
-If the \code{FEM} object contains multiple finite element functions the output is a matrix, and 
-each row corresponds to the location (or areal region) where the evaluation has been taken, while each column 
+A vector or a matrix of numeric evaluations of the \code{FEM} object.
+If the \code{FEM} object contains multiple finite element functions the output is a matrix, and
+each row corresponds to the location (or areal region) where the evaluation has been taken, while each column
 corresponds to the function evaluated.
 }
 \description{
-It evaluates a FEM object at the specified set of locations or areal regions. The locations are used for 
-pointwise evaluations and incidence matrix for areal evaluations. 
+It evaluates a FEM object at the specified set of locations or areal regions. The locations are used for
+pointwise evaluations and incidence matrix for areal evaluations.
 The locations and the incidence matrix cannot be both NULL or both provided.
 }
 \examples{
@@ -54,9 +62,9 @@ eval.FEM(FEMfunction, incidence_matrix = incidence_matrix)
 }
 \references{
 \itemize{
-   \item{Sangalli, L. M., Ramsay, J. O., & Ramsay, T. O. (2013). Spatial spline regression models. 
+   \item{Sangalli, L. M., Ramsay, J. O., & Ramsay, T. O. (2013). Spatial spline regression models.
 Journal of the Royal Statistical Society: Series B (Statistical Methodology), 75(4), 681-703.}
-   \item{Azzimonti, L., Sangalli, L. M., Secchi, P., Domanin, M., & Nobile, F. (2015). Blood flow velocity field estimation 
+   \item{Azzimonti, L., Sangalli, L. M., Secchi, P., Domanin, M., & Nobile, F. (2015). Blood flow velocity field estimation
 via spatial regression with PDE penalization. Journal of the American Statistical Association, 110(511), 1057-1071.}
 }
 }

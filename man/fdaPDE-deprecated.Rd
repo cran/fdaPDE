@@ -75,13 +75,16 @@ refine.MESH.2D(mesh, minimum_angle, maximum_area, delaunay, verbosity)
 \method{plot}{MESH2D}(x, ...)
 }
 \arguments{
-\item{FEMbasis}{A F\code{EMbasis} object describing the Finite Element basis, as created by \code{\link{create.FEM.basis}}.}
+\item{FEMbasis}{A \code{FEMbasis} object describing the Finite Element basis, as created by \code{\link{create.FEM.basis}}.}
 
-\item{locations}{A #observations-by-2 matrix where each row specifies the spatial coordinates of the corresponding observations in the vector \code{observations}.}
+\item{locations}{A #observations-by-2 matrix where each row specifies the spatial coordinates \code{x} and \code{y} of the corresponding observations in the vector \code{observations}.
+This parameter can be \code{NULL}. In this case the spatial coordinates of the corresponding observations are assigned as specified in \code{observations}.}
 
-\item{observations}{A #observations vector with the observed data values over the domain. The locations of the observations can be specified with the \code{locations} argument.
-Otherwise if only the vector of observations is given, these are consider to be located in the corresponding node in the table nodes of the mesh. In this last
-case, an \code{NA} value in the observations vector indicates that there is no observation associated to the corresponding node.}
+\item{observations}{A vector of length #observations with the observed data values over the domain. 
+The locations of the observations can be specified with the \code{locations} argument. 
+Otherwise if only the vector of observations is given, these are consider to be located in the corresponding node in the table
+\code{nodes} of the mesh. In this last case, an \code{NA} value in the \code{observations} vector indicates that there is no observation associated to the corresponding
+ node.}
 
 \item{lambda}{A scalar or vector of smoothing parameters.}
 
@@ -95,11 +98,22 @@ be 0,1 or 2, where 0 indicates that only the basis functions, and not their deri
 
 \item{FEM}{A \code{FEM} object to be evaluated}
 
-\item{BC}{vector with the Dirichlet boundary conditions to be applied.}
+\item{BC}{A list with two vectors: 
+\code{BC_indices}, a vector with the indices in \code{nodes} of boundary nodes where a Dirichlet Boundary Condition should be applied;
+\code{BC_values}, a vector with the values that the spatial field must take at the nodes indicated in \code{BC_indices}.}
 
-\item{CPP_CODE}{Boolean, indicates whether C++ implementation ha sto be used or not.}
+\item{CPP_CODE}{Boolean. If \code{TRUE} the computation relies on the C++ implementation of the algorithm. This usually ensures a much faster computation.}
 
-\item{PDE_parameters}{A list specifying the parameters of the elliptic PDE in the regularizing term.}
+\item{PDE_parameters}{A list specifying the space-varying parameters of the elliptic PDE in the regularizing term: \code{K}, a function that for each spatial location in the spatial domain 
+(indicated by the vector of the 2 spatial coordinates) returns a 2-by-2 matrix of diffusion coefficients. This induces an anisotropic 
+smoothing with a local preferential direction that corresponds to the first eigenvector of the diffusion matrix K.The function must support recycling for efficiency reasons, thus if the input parameter is a #point-by-2 matrix, the output should be
+an array with dimensions 2-by-2-by-#points.\code{b}, a function that for each spatial location in the spatial domain returns 
+a vector of length 2 of transport coefficients. This induces a local smoothing only in the direction specified by the vector \code{b}. The function must support recycling for efficiency reasons, thus if the input parameter is a #point-by-2 matrix, the output should be
+a matrix with dimensions 2-by-#points; \code{c}, a function that for each spatial location in the spatial domain  returns a scalar reaction coefficient.
+\code{c} induces a shrinkage of the surface to zero. The function must support recycling for efficiency reasons, thus if the input parameter is a #point-by-2 matrix, the output should be
+a vector with length #points; \code{u}, a function that for each spatial location in the spatial domain  returns a scalar reaction coefficient.
+\code{u} induces a reaction effect. The function must support recycling for efficiency reasons, thus if the input parameter is a #point-by-2 matrix, the output should be
+a vector with length #points.}
 
 \item{nodes}{A #nodes-by-2 matrix containing the x and y coordinates of the mesh nodes.}
 
@@ -125,9 +139,7 @@ In this case the function \code{create.MESH.2D} is used to produce a complete ME
 These are
 respectively used for linear (order = 1) and quadratic (order = 2) Finite Elements. Default is \code{order} = 1.}
 
-\item{verbosity}{This can be '0', '1' or '2'. It indicates the level of verbosity in the triangulation process. When \code{verbosity} = 0 no message is returned
-during the triangulation. When \code{verbosity} = 2 the triangulation process is described step by step by displayed messages.
-Default is \code{verbosity} = 0.}
+\item{verbosity}{This can be '0', '1' or '2'. It indicates the level of verbosity in the triangulation process.}
 
 \item{mesh}{A MESH2D object representing the triangular mesh, created by \link{create.MESH.2D}.}
 
@@ -161,6 +173,84 @@ basis function evaluated
 
 A matrix of numeric evaluations of the \code{FEM} object. Each row indicates the location where the evaluation has been taken, the column indicates the 
 function evaluated.
+
+A list with the following variables:
+\itemize{
+   \item{\code{fit.FEM}}{A \code{FEM} object that represents the fitted spatial field.}
+   \item{\code{PDEmisfit.FEM}}{A \code{FEM} object that represents the Laplacian of the estimated spatial field.}
+   \item{\code{solution}}{A list, note that all terms are matrices or row vectors: the \code{j}th column represents the vector of related to \code{lambda[j]} if \code{lambda.selection.criterion="grid"} and \code{lambda.selection.lossfunction="unused"}.
+         In all the other cases is returned just the column related to the best penalization parameter
+         \item{\code{f}}{Matrix, estimate of function f, first half of solution vector}
+         \item{\code{g}}{Matrix, second half of solution vector}
+         \item{\code{z_hat}}{Matrix, prediction of the output in the locations}
+         \item{\code{beta}}{If \code{covariates} is not \code{NULL}, a matrix with number of rows equal to the number of covariates and number of columns equal to length of lambda. It is the regression coefficients estimate}
+         \item{\code{rmse}}{Estimate of the root mean square error in the locations}
+         \item{\code{estimated_sd}}{Estiimate of the standard deviation of the error}
+         }
+   \item{\code{optimization}}{A detailed list of optimization related data:
+         \item{\code{lambda_solution}}{numerical value of best lambda acording to \code{lambda.selection.lossfunction}, -1 if \code{lambda.selection.lossfunction="unused"}}
+         \item{\code{lambda_position}}{integer, postion in \code{lambda_vector} of best lambda acording to \code{lambda.selection.lossfunction}, -1 if \code{lambda.selection.lossfunction="unused"}}
+         \item{\code{GCV}}{numeric value of GCV in correspondence of the optimum}
+         \item{\code{optimization_details}}{list containing further information about the optimization method used and the nature of its termination, eventual number of iterations}
+         \item{\code{dof}}{numeric vector, value of dof for all the penalizations it has been computed, empty if not computed}
+         \item{\code{lambda_vector}}{numeric value of the penalization factors passed by the user or found in the iterations of the optimization method}
+         \item{\code{GCV_vector}}{numeric vector, value of GCV for all the penalizations it has been computed}
+         }
+   \item{\code{time}}{Duration of the entire optimization computation}
+   \item{\code{bary.locations}}{A barycenter information of the given locations if the locations are not mesh nodes.}
+}
+
+A list with the following variables:
+\itemize{
+   \item{\code{fit.FEM}}{A \code{FEM} object that represents the fitted spatial field.}
+   \item{\code{PDEmisfit.FEM}}{A \code{FEM} object that represents the Laplacian of the estimated spatial field.}
+   \item{\code{solution}}{A list, note that all terms are matrices or row vectors: the \code{j}th column represents the vector of related to \code{lambda[j]} if \code{lambda.selection.criterion="grid"} and \code{lambda.selection.lossfunction="unused"}.
+         In all the other cases is returned just the column related to the best penalization parameter
+         \item{\code{f}}{Matrix, estimate of function f, first half of solution vector}
+         \item{\code{g}}{Matrix, second half of solution vector}
+         \item{\code{z_hat}}{Matrix, prediction of the output in the locations}
+         \item{\code{beta}}{If \code{covariates} is not \code{NULL}, a matrix with number of rows equal to the number of covariates and number of columns equal to length of lambda. It is the regression coefficients estimate}
+         \item{\code{rmse}}{Estimate of the root mean square error in the locations}
+         \item{\code{estimated_sd}}{Estiimate of the standard deviation of the error}
+         }
+   \item{\code{optimization}}{A detailed list of optimization related data:
+         \item{\code{lambda_solution}}{numerical value of best lambda acording to \code{lambda.selection.lossfunction}, -1 if \code{lambda.selection.lossfunction="unused"}}
+         \item{\code{lambda_position}}{integer, postion in \code{lambda_vector} of best lambda acording to \code{lambda.selection.lossfunction}, -1 if \code{lambda.selection.lossfunction="unused"}}
+         \item{\code{GCV}}{numeric value of GCV in correspondence of the optimum}
+         \item{\code{optimization_details}}{list containing further information about the optimization method used and the nature of its termination, eventual number of iterations}
+         \item{\code{dof}}{numeric vector, value of dof for all the penalizations it has been computed, empty if not computed}
+         \item{\code{lambda_vector}}{numeric value of the penalization factors passed by the user or found in the iterations of the optimization method}
+         \item{\code{GCV_vector}}{numeric vector, value of GCV for all the penalizations it has been computed}
+         }
+   \item{\code{time}}{Duration of the entire optimization computation}
+   \item{\code{bary.locations}}{A barycenter information of the given locations if the locations are not mesh nodes.}
+}
+
+A list with the following variables:
+\itemize{
+   \item{\code{fit.FEM}}{A \code{FEM} object that represents the fitted spatial field.}
+   \item{\code{PDEmisfit.FEM}}{A \code{FEM} object that represents the Laplacian of the estimated spatial field.}
+   \item{\code{solution}}{A list, note that all terms are matrices or row vectors: the \code{j}th column represents the vector of related to \code{lambda[j]} if \code{lambda.selection.criterion="grid"} and \code{lambda.selection.lossfunction="unused"}.
+         In all the other cases is returned just the column related to the best penalization parameter
+         \item{\code{f}}{Matrix, estimate of function f, first half of solution vector}
+         \item{\code{g}}{Matrix, second half of solution vector}
+         \item{\code{z_hat}}{Matrix, prediction of the output in the locations}
+         \item{\code{beta}}{If \code{covariates} is not \code{NULL}, a matrix with number of rows equal to the number of covariates and number of columns equal to length of lambda. It is the regression coefficients estimate}
+         \item{\code{rmse}}{Estimate of the root mean square error in the locations}
+         \item{\code{estimated_sd}}{Estiimate of the standard deviation of the error}
+         }
+   \item{\code{optimization}}{A detailed list of optimization related data:
+         \item{\code{lambda_solution}}{numerical value of best lambda acording to \code{lambda.selection.lossfunction}, -1 if \code{lambda.selection.lossfunction="unused"}}
+         \item{\code{lambda_position}}{integer, postion in \code{lambda_vector} of best lambda acording to \code{lambda.selection.lossfunction}, -1 if \code{lambda.selection.lossfunction="unused"}}
+         \item{\code{GCV}}{numeric value of GCV in correspondence of the optimum}
+         \item{\code{optimization_details}}{list containing further information about the optimization method used and the nature of its termination, eventual number of iterations}
+         \item{\code{dof}}{numeric vector, value of dof for all the penalizations it has been computed, empty if not computed}
+         \item{\code{lambda_vector}}{numeric value of the penalization factors passed by the user or found in the iterations of the optimization method}
+         \item{\code{GCV_vector}}{numeric vector, value of GCV for all the penalizations it has been computed}
+         }
+   \item{\code{time}}{Duration of the entire optimization computation}
+   \item{\code{bary.locations}}{A barycenter information of the given locations if the locations are not mesh nodes.}
+}
 
 An object of the class MESH2D with the following output:
 \item{\code{nodes}}{A #nodes-by-2 matrix containing the x and y coordinates of the mesh nodes.}
@@ -205,6 +295,41 @@ in the triangulation, when the domain has holes.}
 These are respectively used for linear (order = 1) and quadratic (order = 2) Finite Elements. Default is \code{order} = 1.}
 }
 \description{
+Only executed when \code{smooth.FEM.basis} is run with the option  \code{CPP_CODE} = \code{FALSE}. It computes the mass matrix. The element (i,j) of this matrix contains the integral over the domain of the product between the ith and kth element 
+of the Finite Element basis. As common practise in Finite Element Analysis, this quantities are computed iterating over all the mesh triangles.
+
+Only executed when \code{smooth.FEM.basis} is run with the option  \code{CPP_CODE} = \code{FALSE}. It computes the stifness matrix. The element (i,j) of this matrix contains the integral over the domain of the scalar product between the gradient of the ith and kth element 
+of the Finite Element basis. As common practise in Finite Element Analysis, this quantities are computed iterating over all the mesh triangles.
+
+Only executed when the function \code{smooth.FEM.basis} is run with the option \code{CPP_CODE} = \code{FALSE}. It evaluates the Finite Element basis functions and their derivatives up to order 2 at the specified set of locations. 
+This version of the function is implemented using only R code. It is called by \link{R_smooth.FEM.basis}.
+
+Only executed when the function \code{smooth.FEM.basis} is run with the option \code{CPP_CODE} = \code{FALSE}. It evaluates a FEM object at the specified set of locations.
+
+This function implements a spatial regression model with differential regularization; isotropic and stationary case. In particular, the regularizing term involves the Laplacian of the spatial field. Space-varying covariates can be included in the model. The technique accurately handle data distributed over irregularly shaped domains. Moreover, various conditions can be imposed at the domain boundaries.
+
+This function implements a spatial regression model with differential regularization; anysotropic case. In particular, the regularizing term involves a second order elliptic PDE, that models the space-variation of the phenomenon. Space-varying covariates can be included in the model. The technique accurately handle data distributed over irregularly shaped domains. Moreover, various conditions can be imposed at the domain boundaries.
+
+This function implements a spatial regression model with differential regularization; anysotropic and non-stationary case. In particular, the regularizing term involves a second order elliptic PDE with space-varying coefficients, that models the space-variation of the phenomenon. Space-varying covariates can be included in the model. The technique accurately handle data distributed over irregularly shaped domains. Moreover, various conditions can be imposed at the domain boundaries.
+
+This function is a wrapper of the Triangle library (http://www.cs.cmu.edu/~quake/triangle.html). It can be used
+to create a triangulation of the domain of interest starting from a list of points, to be used as triangles' vertices, and a list of segments, that define the domain boundary. The resulting
+mesh is a Constrained Delaunay triangulation. This is constructed in a way to preserve segments provided in the input \code{segments} without splitting them. This imput can be used to define the boundaries
+of the domain. If this imput is NULL, it generates a triangulation over the
+convex hull of the points.
+
+This function refines a Constrained Delaunay triangulation into a Conforming Delaunay triangulation. This is a wrapper of the Triangle library (http://www.cs.cmu.edu/~quake/triangle.html). It can be used to 
+refine a mesh created previously with \link{create.MESH.2D}. The algorithm can add Steiner points (points through which the \code{segments} are splitted)
+in order to meet the imposed refinement conditions.
+
+Plot a mesh MESH2D object, generated by \code{create.MESH.2D} or \code{refine.MESH.2D}. Circles indicate the mesh nodes.
+}
+\details{
 These functions are Deprecated in this release of fdaPDE, they will be 
 marked as Defunct and removed in a future version.
+}
+\seealso{
+\code{\link{refine.MESH.2D}}, \code{\link{create.FEM.basis}}
+
+\code{\link{create.MESH.2D}}, \code{\link{create.FEM.basis}}
 }

@@ -7,8 +7,8 @@
 FEM(coeff,FEMbasis)
 }
 \arguments{
-\item{coeff}{A vector or a matrix containing the coefficients for the Finite Element basis expansion. The number of rows 
-(or the vector's length) corresponds to the number of basis in \code{FEMbasis}. 
+\item{coeff}{A vector or a matrix containing the coefficients for the Finite Element basis expansion. The number of rows
+(or the vector's length) corresponds to the number of basis in \code{FEMbasis}.
 The number of columns corresponds to the number of functions.}
 
 \item{FEMbasis}{A \code{FEMbasis} object defining the Finite Element basis, created by \link{create.FEM.basis}.}
@@ -23,12 +23,10 @@ This function defines a FEM object.
 library(fdaPDE)
 ## Upload the horseshoe2D data
 data(horseshoe2D)
-boundary_nodes = horseshoe2D$boundary_nodes
-boundary_segments = horseshoe2D$boundary_segments
-locations = horseshoe2D$locations
 
 ## Create the 2D mesh
-mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
+mesh = create.mesh.2D(nodes = rbind(horseshoe2D$boundary_nodes, horseshoe2D$locations), 
+                      segments = horseshoe2D$boundary_segments)
 ## Create the FEM basis
 FEMbasis = create.FEM.basis(mesh)
 ## Compute the coeff vector evaluating the desired function at the mesh nodes

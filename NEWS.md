@@ -1,4 +1,41 @@
-# fdaPDE 1.0-9
+
+# fdaPDE 1.1-4
+
+## New features
+
+1) fdaPDE over Linear Networks domains
+2) smooth regression for non-gaussian space-time data (GLM model)
+
+# fdaPDE 1.1-3
+
+## New features
+
+Optimization in spatio-temporal setting: introduced Newton method and refactored grid code.
+
+# fdaPDE 1.1-2
+
+## New features
+
+Iterative method for spatio-temporal regression with PDE regularization
+(in this framework also two methods for the computation of GCV Exact and Stochastic)
+
+
+# fdaPDE 1.1-1
+
+## New features
+
+1) Optimization methods (Newton's methods) to find best smoothing parameter through GCV minimization
+2) smooth regression for non-gaussian data (GLM model)
+
+# fdaPDE 1.1-0
+
+## New features
+
+1) smooth regression for space-time data
+2) density estimation
+3) faster search algorithm 
+
+# fdaPDE 1.0-8
 
 ## Bug fixes
 Compilation errors with clang fixed.
