@@ -1,6 +1,6 @@
 Package: fdaPDE
-Version: 1.1-4
-Date: 2022-04-05
+Version: 1.1-7
+Date: 2022-05-30
 Title: Functional Data Analysis and Partial Differential Equations
         (PDE); Statistical Analysis of Functional and Spatial Data,
         Based on Regression with PDE Regularization
@@ -45,7 +45,7 @@ NeedsCompilation: yes
 SystemRequirements: C++11, GNU make
 RoxygenNote: 7.1.2
 Encoding: UTF-8
-Packaged: 2022-05-02 15:16:02 UTC; eleon_000
+Packaged: 2022-05-31 08:44:02 UTC; eleon_000
 Author: Eleonora Arnone [aut, cre],
   Laura M. Sangalli [aut],
   Eardi Lila [aut],
@@ -70,4 +70,4 @@ Author: Eleonora Arnone [aut, cre],
   Stefano Spaziani [ctb],
   Andrea Vicini [ctb]
 Repository: CRAN
-Date/Publication: 2022-05-02 16:52:06 UTC
+Date/Publication: 2022-06-01 10:20:02 UTC

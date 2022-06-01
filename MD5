@@ -1,4 +1,4 @@
-45dd515e05a547e576ee4aec1d229f7c *DESCRIPTION
+1f6fb18c8478844a74993f5a5847c32f *DESCRIPTION
 0c837a47509fcb3bbe119a3d4475350b *LICENSE.note
 91715612e7f8440eab50151ac9bd8785 *NAMESPACE
 892c5aa2edc6be268949311e0a13c8dc *NEWS.md
@@ -8,15 +8,15 @@ dc4504252dcc18a6c515e3af0c9478ce *R/DE_init.R
 0df487a76322f45b6e8da92eebd4006a *R/DE_init_CPP.R
 86d3fcfb5cc282d96810950b4d9dcc3b *R/FEMevaluator.R
 3e25e091ddbe4b10a2c98ad6941fa6e4 *R/FEMobjects.R
-81f3d3f60e42db0951f45f55d8a228df *R/checkDEInitParameters.R
-38e7e521c2eb44443dbb8b7a76dbb74d *R/checkDEParameters.R
+16a05189d62adeb2643d08ef230dbc98 *R/checkDEInitParameters.R
+fa7ae660340d372ad5f571b59f695cf2 *R/checkDEParameters.R
 2f42f595ee15788367b29360a86b946e *R/checkFPCAParameters.R
 0d274d90199ee7749739d64e2b28c43c *R/checkGAMParameters.R
 c6cd953afeef6a4d4052e5da5d338a11 *R/checkSmoothingParameters.R
 9e349f416ab7f1351fd8469495169efc *R/checkSmoothingParameters_time.R
 90b21c4bc7aadb05236897a98ba03446 *R/datasets.R
 755d0b4ba7a8e2f57d91b09ab02b4514 *R/deprecated.R
-c2bbbcce159772b632c57e53db7ca830 *R/mesh.R
+b28a73ab24280a3e904361e1e7aa249d *R/mesh.R
 d93a7fdbdc64d6af4fe7b175a71f59ff *R/plot.R
 fe40ae71628e44c2820ac8ea78eea2ae *R/smoothFPCA.R
 10a9081b57e3b45443373853ac8d2d56 *R/smoothFPCA_CPP.R
@@ -80,7 +80,7 @@ caf2676a3e7641db0766ed6100b2f33e *man/refine.by.splitting.mesh.3D.Rd
 7e43f23f764ab2110fee474056113ade *man/smooth.FEM.Rd
 c001cb85e04be97e1097b31037fbc3f0 *man/smooth.FEM.time.Rd
 b3a91c7cc7b77f48c36b91cdda83fca9 *man/sphere3Ddata.Rd
-a8ca1841e2f0901b05e09a964df4ac5a *src/C_Libraries/FEMtriangulation.c
+07b01c4d5bd1f2065477cd2b56cd71e5 *src/C_Libraries/FEMtriangulation.c
 247e4ee67c228338254f56ebd95b775e *src/C_Libraries/triangle.c
 4022ff7b3e9cb8da7e4d2b8699499fee *src/C_Libraries/triangle.h
 6fdae70bb717c7731e3abe55f1ecc331 *src/Density_Estimation/Include/DE_Data.h
@@ -149,9 +149,9 @@ a3eb6f6b564044b6934fc32c6425a45c *src/Lambda_Optimization/Include/Auxiliary_Opti
 56469ea2dd9cad9918b9fd596bccf370 *src/Lambda_Optimization/Include/Function_Variadic.h
 63874820d1ce34c4f35be4178e1cc31d *src/Lambda_Optimization/Include/Gof_Updater.h
 11aea38359fb014c240aebf96d47746a *src/Lambda_Optimization/Include/Grid_Evaluator.h
-07f2f5a9b1ce07e897b8c83ac24bb4d1 *src/Lambda_Optimization/Include/Lambda_Optimizer.h
+53af016a3b7a9533c0f69ba4b8d27bdf *src/Lambda_Optimization/Include/Lambda_Optimizer.h
 0cadbaedd9a22e8dc88d46522a84b184 *src/Lambda_Optimization/Include/Lambda_Optimizer_imp.h
-0619630f92774ba08e14cd52a7609a9e *src/Lambda_Optimization/Include/Newton.h
+1fdc46bb0d970a2858928307379c016b *src/Lambda_Optimization/Include/Newton.h
 74fdcfed8a4ed3c5ceb08058635d7a75 *src/Lambda_Optimization/Include/Newton_imp.h
 23a5a3af40251579153904f844ddf06f *src/Lambda_Optimization/Include/Optimization_Data.h
 3932439a04fdc9ce8d6d25f117b099d8 *src/Lambda_Optimization/Include/Optimization_Methods_Factory.h
@@ -184,8 +184,8 @@ cda2f4094ce513c59cc0eef4677b43fb *src/Mesh/Include/Tree_Node.h
 e6ab8704c8379d6c56e0c323c6f5139f *src/Regression/Include/FPIRLS_Factory.h
 3636e0b3bc3f4788dbf3712053d486c1 *src/Regression/Include/FPIRLS_imp.h
 27ab546c414777c20e4249f34993fa03 *src/Regression/Include/Mixed_FE_Regression.h
-5aa05cc1a0a544668a4164bf7009a35a *src/Regression/Include/Mixed_FE_Regression_imp.h
-e6ee679236d0b165b3072f3cd6eea3be *src/Regression/Include/Regression_Data.h
+7291295ece745d4b4b78bc3e0c8a0354 *src/Regression/Include/Mixed_FE_Regression_imp.h
+981a7782f80f8fb5382cd5983815146f *src/Regression/Include/Regression_Data.h
 c34669fe8d66f178f9d54541ead0f637 *src/Regression/Include/Regression_Data_imp.h
 0d2186c75274dfd3fdd66549dce0f0ee *src/Regression/Source/Regression_Data.cpp
 4024e103bda030373c365ddb9f3be6a4 *src/Regression/Source/Rfun_Auxiliary.cpp
