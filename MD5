@@ -1,6 +1,6 @@
-1f6fb18c8478844a74993f5a5847c32f *DESCRIPTION
+23a9ea2f9f84f0deaa33b2f85a59c452 *DESCRIPTION
 0c837a47509fcb3bbe119a3d4475350b *LICENSE.note
-91715612e7f8440eab50151ac9bd8785 *NAMESPACE
+1bbebe72a2d4191aafe7224f45f9dec5 *NAMESPACE
 892c5aa2edc6be268949311e0a13c8dc *NEWS.md
 52b6b41b080930063636abf0f821cad4 *R/DE.R
 ab66779903cef0471ebe40b03506a973 *R/DE_CPP.R
@@ -29,11 +29,11 @@ f370f6d4967342c3d55fbed5de312d97 *R/smoothing.R
 ac09c8b832c8a957b05cc8b3b7fd4d3a *R/smoothing_graph_CPP_time.R
 5f0fdae4ebd124d9806c8514486be584 *R/smoothing_manifold_CPP.R
 bd2ff9105669de7c4c999bfb9a7e8094 *R/smoothing_manifold_CPP_time.R
-9dfbbe47aca5a037c7f8f7f0e7bb1095 *R/smoothing_time.R
+a5cf8292f5af34be3a12300d02cdc9b2 *R/smoothing_time.R
 cd3b20685290ce7132912037822e76a7 *R/smoothing_volume_CPP.R
 cb58b8696009806f9c70ac7111277f17 *R/smoothing_volume_CPP_time.R
 2e36c042b69b79cdd8cb0d75feebde4d *R/testFunctions.R
-3ffde4c3123c0cdfa40934a498e90079 *README.md
+da57a004f9a1d21ef189c54ebc8745f4 *README.md
 2646ca65620a698c73aef81dca265975 *data/horseshoe2.5D.RData
 518bcd1ad0a37339b598968d695e5acf *data/horseshoe2D.RData
 e26c11ed93f8b2267fb795d4620839b2 *data/hub2.5D.RData
@@ -75,7 +75,7 @@ e39a454e100c4308d645ca284d9276c9 *man/refine.by.splitting.mesh.1.5D.Rd
 a36c942734e41e11f83ac8473b9877a6 *man/refine.by.splitting.mesh.2.5D.Rd
 51c5afaf7ac54ee18aef4115c243411c *man/refine.by.splitting.mesh.2D.Rd
 caf2676a3e7641db0766ed6100b2f33e *man/refine.by.splitting.mesh.3D.Rd
-871b6ac851ed494d5302bf7a5eab6640 *man/refine.mesh.1.5D.Rd
+bf9b6860a2ee5a10d6e22b89827e77ff *man/refine.mesh.1.5D.Rd
 114f11f104bd1fcf7f4c97f2e94f0cf4 *man/refine.mesh.2D.Rd
 7e43f23f764ab2110fee474056113ade *man/smooth.FEM.Rd
 c001cb85e04be97e1097b31037fbc3f0 *man/smooth.FEM.time.Rd
