@@ -1,4 +1,4 @@
-f04751a73eab433d96432ebc2f88827c *DESCRIPTION
+d5c1316ce6210478735081bc44386318 *DESCRIPTION
 0c837a47509fcb3bbe119a3d4475350b *LICENSE.note
 611c3bb1ac566484b727279009a50a83 *NAMESPACE
 de1bbb28e3151848ec7f91ccf557474d *NEWS.md
@@ -32,8 +32,8 @@ dd628f98adb2610a04190bb9c1b8b15a *R/smoothing_graph_CPP.R
 22f128fcd3ec9222fb893b476db75060 *R/smoothing_manifold_CPP.R
 669b015ac5ee49f1869aa0196043a1d7 *R/smoothing_manifold_CPP_time.R
 49820305399b9efa06e459b8dfdd32fb *R/smoothing_time.R
-d69ad567be96a9ca1ba82b4ac4ae71eb *R/smoothing_volume_CPP.R
-470f5633edcb790165f2401ef42aeab4 *R/smoothing_volume_CPP_time.R
+ffef500223e762c636a945fb88e813ae *R/smoothing_volume_CPP.R
+c6d120b97bf3f0c5a20e0307533f3ff6 *R/smoothing_volume_CPP_time.R
 2e36c042b69b79cdd8cb0d75feebde4d *R/testFunctions.R
 30489e73d2650f5624eb592a98f2ef2b *README.md
 2646ca65620a698c73aef81dca265975 *data/horseshoe2.5D.RData
@@ -137,7 +137,7 @@ f60a5f2beebf4409e0e167ad0e966868 *src/FPCA/Include/Mixed_FE_FPCA.h
 0f5ec00678c64e35193c4837d58bc385 *src/FPCA/Source/FPCA_Object.cpp
 55c58a9c4be8910c14d98fe4d587f31f *src/FPCA/Source/Mixed_FE_FPCA.cpp
 5575ed462af4d6d8d1ab771082525712 *src/FPCA/Source/Rfun_Smooth_FPCA.cpp
-e67b5fcf3fa77b47ef699dd7669abcc6 *src/FdaPDE.h
+eebd577c8d55ebea757d576969eb5857 *src/FdaPDE.h
 71ba038a25bbfdb96342970eb50925bc *src/FdaPDE_init.c
 9a19e0b789c983234e804a47422a6623 *src/Global_Utilities/Include/Factory.h
 14aca32a50e64ff08e445266e5c5649c *src/Global_Utilities/Include/Lambda.h
@@ -159,7 +159,7 @@ bd80ec575da9dce45daf87a23da0b0b1 *src/Inference/Include/Inference_Factory.h
 a1cc5ba2ad8a0203fe5c6197f975d517 *src/Inference/Include/Speckman.h
 886ecd116f22d67d30323bdc52768eeb *src/Inference/Include/Speckman_imp.h
 edf8de2646d1b8bfb7af2692af97040e *src/Inference/Include/Wald.h
-7af7b46958eb1b9455f89e0bc7f45221 *src/Inference/Include/Wald_imp.h
+54c4a3d8ca9957e4ecae37dd19e25192 *src/Inference/Include/Wald_imp.h
 5b0cc794eef146650a4b2279fa7f44fc *src/Inference/Source/Inference_Data.cpp
 80e0ab38e126ba8cc4b07fbc3e0a4f79 *src/Inference/Source/Inverter.cpp
 5612de719f1011e5a21ecc26230e2ae5 *src/Lambda_Optimization/Include/Auxiliary_Optimizer.h
