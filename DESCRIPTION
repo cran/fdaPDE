@@ -1,6 +1,6 @@
 Package: fdaPDE
-Version: 1.1-16
-Date: 2023-02-28
+Version: 1.1-17
+Date: 2023-12-01
 Title: Physics-Informed Spatial and Functional Data Analysis
 Authors@R: c(person("Eleonora", "Arnone", role = c("aut", "cre"),
 		     email = "eleonora.arnone@polimi.it"),
@@ -42,14 +42,15 @@ Maintainer: Eleonora Arnone <eleonora.arnone@polimi.it>
 Depends: R (>= 3.5.0), stats, grDevices, graphics, rgl, Matrix, plot3D,
         methods
 LinkingTo: RcppEigen, Rcpp
-Suggests: MASS, testthat
+Suggests: MASS, testthat (>= 3.0.0)
 Description: An implementation of regression models with partial differential regularizations, making use of the Finite Element Method. The models efficiently handle data distributed over irregularly shaped domains and can comply with various conditions at the boundaries of the domain. A priori information about the spatial structure of the phenomenon under study can be incorporated in the model via the differential regularization. See Sangalli, L. M. (2021) <doi:10.1111/insr.12444> "Spatial Regression With Partial Differential Equation Regularisation" for an overview. The release 1.1-9 requires R (>= 4.2.0) to be installed on windows machines.
 License: GPL-3
 NeedsCompilation: yes
 SystemRequirements: GNU make
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3
 Encoding: UTF-8
-Packaged: 2023-02-28 17:47:25 UTC; aldo
+Config/testthat/edition: 3
+Packaged: 2023-12-19 08:02:24 UTC; aldoclemente
 Author: Eleonora Arnone [aut, cre],
   Aldo Clemente [aut],
   Laura M. Sangalli [aut],
@@ -79,4 +80,4 @@ Author: Eleonora Arnone [aut, cre],
   Andrea Vicini [ctb],
   David C. Sterratt [cph] (Author of included Triangle source files)
 Repository: CRAN
-Date/Publication: 2023-03-01 08:22:39 UTC
+Date/Publication: 2023-12-21 10:40:02 UTC
