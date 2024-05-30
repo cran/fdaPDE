@@ -1,6 +1,6 @@
 Package: fdaPDE
-Version: 1.1-17
-Date: 2023-12-01
+Version: 1.1-18
+Date: 2024-05-15
 Title: Physics-Informed Spatial and Functional Data Analysis
 Authors@R: c(person("Eleonora", "Arnone", role = c("aut", "cre"),
 		     email = "eleonora.arnone@polimi.it"),
@@ -50,7 +50,7 @@ SystemRequirements: GNU make
 RoxygenNote: 7.2.3
 Encoding: UTF-8
 Config/testthat/edition: 3
-Packaged: 2023-12-19 08:02:24 UTC; aldoclemente
+Packaged: 2024-05-22 15:30:31 UTC; aldoclemente
 Author: Eleonora Arnone [aut, cre],
   Aldo Clemente [aut],
   Laura M. Sangalli [aut],
@@ -80,4 +80,4 @@ Author: Eleonora Arnone [aut, cre],
   Andrea Vicini [ctb],
   David C. Sterratt [cph] (Author of included Triangle source files)
 Repository: CRAN
-Date/Publication: 2023-12-21 10:40:02 UTC
+Date/Publication: 2024-05-30 20:10:03 UTC

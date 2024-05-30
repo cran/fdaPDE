@@ -1,4 +1,4 @@
-cabbbc6270ece161fc3bc91f196ab190 *DESCRIPTION
+38dc60f1a0d82128c67e010ebc056f4e *DESCRIPTION
 c69d0a432acdd9893d369620aba67fa8 *LICENSE.note
 d3c78f67f8c38d37b502768447658f1f *NAMESPACE
 4f0539482a07e8ee19b3c65448e7c30e *NEWS.md
@@ -215,7 +215,7 @@ cda2f4094ce513c59cc0eef4677b43fb *src/Mesh/Include/Tree_Node.h
 24e2a4f0949685606c39c01deccf155f *src/Regression/Include/FPIRLS_Factory.h
 5f36a36cdefeeb6b405bf8acd74933c5 *src/Regression/Include/FPIRLS_imp.h
 4ad43796ffb788feef53a94b0e4ceb35 *src/Regression/Include/Mixed_FE_Regression.h
-7291295ece745d4b4b78bc3e0c8a0354 *src/Regression/Include/Mixed_FE_Regression_imp.h
+e764d4bfdc08f865df80b88a333df39d *src/Regression/Include/Mixed_FE_Regression_imp.h
 981a7782f80f8fb5382cd5983815146f *src/Regression/Include/Regression_Data.h
 c34669fe8d66f178f9d54541ead0f637 *src/Regression/Include/Regression_Data_imp.h
 0d2186c75274dfd3fdd66549dce0f0ee *src/Regression/Source/Regression_Data.cpp
