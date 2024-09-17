@@ -1,4 +1,4 @@
-390decf4c8bf4d8384d10f2dc138aa2b *DESCRIPTION
+5f08b27b9b866cb9e15d91779ffae132 *DESCRIPTION
 c69d0a432acdd9893d369620aba67fa8 *LICENSE.note
 d3c78f67f8c38d37b502768447658f1f *NAMESPACE
 4f0539482a07e8ee19b3c65448e7c30e *NEWS.md
@@ -96,8 +96,8 @@ c08624515efd37f375e33df44472bc82 *man/refine.mesh.2D.Rd
 e1d56a477607d1f8fd9841cf21fd32c2 *man/smooth.FEM.Rd
 441b4fcf0243d97b9c84787007237178 *man/smooth.FEM.time.Rd
 b3a91c7cc7b77f48c36b91cdda83fca9 *man/sphere3Ddata.Rd
-07b01c4d5bd1f2065477cd2b56cd71e5 *src/C_Libraries/FEMtriangulation.c
-0c8cbb7a6992a50069b3136702f12ea8 *src/C_Libraries/triangle.c
+b6f89096b35b170f3a2308bbd1086b83 *src/C_Libraries/FEMtriangulation.c
+9441ea6fdf076622f8f37cec407e1456 *src/C_Libraries/triangle.c
 14727f20365fd4c0ca8b5a4f1cf23a9b *src/C_Libraries/triangle.h
 4cbffa9713209316a3cf56a4991cdf2e *src/Density_Estimation/Include/DE_Data.h
 5843a6961b96e9ef7faabcbad648a553 *src/Density_Estimation/Include/DE_Data_imp.h
